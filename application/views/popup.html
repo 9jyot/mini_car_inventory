@@ -1,0 +1,43 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Model Detail</h3>
+</div>
+<div class="modal-body" id="modal-body">
+
+    <div class="table-responsive">          
+	  <table class="table table-striped table-bordered" class="table">
+	    <thead>
+	      <tr>
+	        <th>Sr. No.</th>
+	        <th>Manufacturer Name</th>
+	        <th>Model Name</th>
+	        <th>Color</th>
+	        <th>Manufacturing Year</th>
+	        <th>Images</th>
+	        <th>Registration No.</th>
+	        <th>Note</th>
+	        <th>Action</th>
+
+	        
+	      </tr>
+	    </thead>
+	    <tbody>
+					
+	  		<tr ng-repeat="inv in param" >
+				<td>{{ $index + 1 }}</td>
+				<td>{{ inv.manufacturer_name }}</td>
+				<td>{{ inv.model_name }}</td>
+				<td>{{ inv.color }}</td>
+				<td>{{ inv.manufacturing_year }}</td>						
+				<td><p ng-repeat="img in inv.image.split(',')"><img class="img-thumbnail" alt="no-image" src='uploads/{{img.trim()}}'></p></td>						
+				<td>{{ inv.registration_no }}</td>						
+				<td>{{ inv.note }}</td>						
+				<td><button class="btn btn-danger" ng-click = "carSold()" id= '{{ inv.model_id }}'>Sold</button></td>						
+			</tr>
+	    </tbody>
+	  </table>
+	</div>
+</div>
+<div class="modal-footer">
+   <!--  <button class="btn btn-primary" type="button" ng-click="pc.ok()">OK</button> -->
+    <button class="btn btn-warning"  type="button" ng-click="clickMe()">Cancel</button>
+</div>
